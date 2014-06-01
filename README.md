@@ -8,49 +8,49 @@ Backup script to use with [DAR](http://dar.linux.free.fr/) for full and incremen
 Configuration
 -------------
 
-Place the script somewhere you like and edit the configuration in the top of it:
+1. Place the script somewhere you like and edit the configuration in the top of it:
 
-    # Backups will be placed here
-    DSTDIR=/mnt/backup
+        # Backups will be placed here
+        DSTDIR=/mnt/backup
 
-    # Name prefix
-    ARCHNAME=homes
+        # Name prefix
+        ARCHNAME=homes
 
-    # Try to maintain this much free space in DSTDIR, in MBytes
-    MINFREE=`expr 10 \* 1024`
+        # Try to maintain this much free space in DSTDIR, in MBytes
+        MINFREE=`expr 10 \* 1024`
 
-    # Keep at least this many complete backups
-    # when trying to free up some space
-    MINFULL=3
+        # Keep at least this many complete backups
+        # when trying to free up some space
+        MINFULL=3
 
-    # Path to dar configuration file
-    DARRC=./darrc
+        # Path to dar configuration file
+        DARRC=./darrc
 
-After this edit `darrc` (dar configuration file) to suit your needs. Here's an example:
+1. After this edit `darrc` (dar configuration file) to suit your needs. Here's an example:
 
-    # This is a simple darrc example that is configured to take backups
-    # of (possibly) important stuff in users' home dirs.
-    #
-    # See dar man page for more options and their description.
-    #
-    # Suppress final report
-    -q
-    # Enable compression
-    -z4
-    # Do not overwrite any files
-    -n
-    # Set backup root to users' homes
-    -R /home/
-    # Switch to ordered selection mode, which means that the following
-    # options will be considered top to bottom
-    -am
-    # Exclude everything in homes, other than config files
-    -P home/*/[^.]*
-    # Include complete homes of important users
-    -g home/iafilatov
-    -g home/vip
-    # Exclude videos, because they take too much space
-    -P home/vip/video
+        # This is a simple darrc example that is configured to take backups
+        # of (possibly) important stuff in users' home dirs.
+        #
+        # See dar man page for more options and their description.
+        #
+        # Suppress final report
+        -q
+        # Enable compression
+        -z4
+        # Do not overwrite any files
+        -n
+        # Set backup root to users' homes
+        -R /home/
+        # Switch to ordered selection mode, which means that the following
+        # options will be considered top to bottom
+        -am
+        # Exclude everything in homes, other than config files
+        -P home/*/[^.]*
+        # Include complete homes of important users
+        -g home/iafilatov
+        -g home/vip
+        # Exclude videos, because they take too much space
+        -P home/vip/video
 
 You are ready to go.
 
