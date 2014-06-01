@@ -18,10 +18,11 @@ DSTDIR=/mnt/backup
 # Names look like $ARCHNAME.$DATE.(DIFF|FULL).dar(.[number])
 ARCHNAME=homes
 
-# Try to maintain this much free space, in MBytes
+# Try to maintain this much free space in DSTDIR, in MBytes
 MINFREE=`expr 10 \* 1024`
 
 # Keep at least this many complete backups
+# when trying to free up some space
 # Will exit with error if MINFREE and MINFULL can't be satisfied simultaneously
 MINFULL=3
 
