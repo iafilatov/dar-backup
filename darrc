@@ -1,0 +1,23 @@
+# This is a simple darrc example that is configured to take backups
+# of (possibly) important stuff in users' home dirs.
+#
+# See dar man page for more options and their description.
+#
+# Suppress final report
+-q
+# Enable compression
+-z4
+# Do not overwrite any files
+-n
+# Set backup root to users' homes
+-R /home/
+# Switch to ordered selection mode, which means that the following
+# options will be considered top to bottom
+-am
+# Exclude everything in homes, other than config files
+-P home/*/[^.]*
+# Include complete homes of important users
+-g home/iafilatov
+-g home/vip
+# Exclude videos, because they take too much space
+-P home/vip/video
